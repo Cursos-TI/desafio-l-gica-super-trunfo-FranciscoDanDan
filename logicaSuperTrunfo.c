@@ -1,43 +1,129 @@
 #include <stdio.h>
-
-// Desafio Super Trunfo - Países
-// Tema 2 - Comparação das Cartas
-// Este código inicial serve como base para o desenvolvimento do sistema de comparação de cartas de cidades. 
-// Siga os comentários para implementar cada parte do desafio.
+#include <string.h>
 
 int main() {
-    // Definição das variáveis para armazenar as propriedades das cidades
-    // Você pode utilizar o código do primeiro desafio
+    // Variáveis da primeira carta
+    char nomePais1[50];
+    int populacao1, area1, pontosTuristicos1;
+    float pib1, densidadePopulacional1, pibPerCapita1;
 
-    
-    // Cadastro das Cartas:
-    // Implemente a lógica para solicitar ao usuário que insira os dados das cidades
-    // utilizando a função scanf para capturar as entradas.
-    // utilize o código do primeiro desafio
+    // Variáveis da segunda carta
+    char nomePais2[50];
+    int populacao2, area2, pontosTuristicos2;
+    float pib2, densidadePopulacional2, pibPerCapita2;
 
-    // Exemplo:
-    // printf("Digite o código da cidade: ");
-    // scanf("%s", codigo);
-    // 
-    // (Repita para cada propriedade)
+    int atributoEscolhido;
 
-    // Comparação de Cartas:
-    // Desenvolva a lógica de comparação entre duas cartas.
-    // Utilize estruturas de decisão como if, if-else para comparar atributos como população, área, PIB, etc.
+    // --- Cadastro da primeira carta ---
+    printf("\nCadastro da Carta 1\n");
 
-    // Exemplo:
-    // if (populacaoA > populacaoB) {
-    //     printf("Cidade 1 tem maior população.\n");
-    // } else {
-    //     printf("Cidade 2 tem maior população.\n");
-    // }
+    printf("Nome do país: ");
+    scanf(" %49[^\n]", nomePais1);  // Lê o nome com espaços
 
-    // Exibição dos Resultados:
-    // Após realizar as comparações, exiba os resultados para o usuário.
-    // Certifique-se de que o sistema mostre claramente qual carta venceu e com base em qual atributo.
+    printf("População: ");
+    scanf("%d", &populacao1);
 
-    // Exemplo:
-    // printf("A cidade vencedora é: %s\n", cidadeVencedora);
+    printf("Área (em km²): ");
+    scanf("%d", &area1);
+
+    printf("PIB (em bilhões): ");
+    scanf("%f", &pib1);
+
+    printf("Quantidade de pontos turísticos: ");
+    scanf("%d", &pontosTuristicos1);
+
+    // Cálculo de indicadores derivados
+    densidadePopulacional1 = (area1 > 0) ? (float)populacao1 / area1 : 0;
+    pibPerCapita1 = (populacao1 > 0) ? pib1 / populacao1 : 0;
+
+    // --- Cadastro da segunda carta ---
+    printf("\nCadastro da Carta 2\n");
+
+    printf("Nome do país: ");
+    scanf(" %49[^\n]", nomePais2);
+
+    printf("População: ");
+    scanf("%d", &populacao2);
+
+    printf("Área (em km²): ");
+    scanf("%d", &area2);
+
+    printf("PIB (em bilhões): ");
+    scanf("%f", &pib2);
+
+    printf("Quantidade de pontos turísticos: ");
+    scanf("%d", &pontosTuristicos2);
+
+    // Cálculo de indicadores derivados
+    densidadePopulacional2 = (area2 > 0) ? (float)populacao2 / area2 : 0;
+    pibPerCapita2 = (populacao2 > 0) ? pib2 / populacao2 : 0;
+
+    // --- Menu para escolha do atributo de comparação ---
+    printf("\nEscolha o atributo para comparar as cartas:\n");
+    printf("1 - População\n");
+    printf("2 - Área\n");
+    printf("3 - PIB\n");
+    printf("4 - Pontos Turísticos\n");
+    printf("5 - Densidade Populacional\n");
+    printf("6 - PIB per capita\n");
+    printf("Opção: ");
+    scanf("%d", &atributoEscolhido);
+
+    // --- Comparação baseada no atributo escolhido ---
+    printf("\nResultado da comparação:\n");
+
+    if (atributoEscolhido == 1) {
+        // Comparação por População
+        if (populacao1 > populacao2)
+            printf("%s vence com maior população.\n", nomePais1);
+        else if (populacao2 > populacao1)
+            printf("%s vence com maior população.\n", nomePais2);
+        else
+            printf("Empate em população.\n");
+    } else if (atributoEscolhido == 2) {
+        // Comparação por Área
+        if (area1 > area2)
+            printf("%s vence com maior área.\n", nomePais1);
+        else if (area2 > area1)
+            printf("%s vence com maior área.\n", nomePais2);
+        else
+            printf("Empate em área.\n");
+    } else if (atributoEscolhido == 3) {
+        // Comparação por PIB
+        if (pib1 > pib2)
+            printf("%s vence com maior PIB.\n", nomePais1);
+        else if (pib2 > pib1)
+            printf("%s vence com maior PIB.\n", nomePais2);
+        else
+            printf("Empate em PIB.\n");
+    } else if (atributoEscolhido == 4) {
+        // Comparação por Pontos Turísticos
+        if (pontosTuristicos1 > pontosTuristicos2)
+            printf("%s vence com mais pontos turísticos.\n", nomePais1);
+        else if (pontosTuristicos2 > pontosTuristicos1)
+            printf("%s vence com mais pontos turísticos.\n", nomePais2);
+        else
+            printf("Empate em pontos turísticos.\n");
+    } else if (atributoEscolhido == 5) {
+        // Comparação por Densidade Populacional
+        if (densidadePopulacional1 > densidadePopulacional2)
+            printf("%s vence com maior densidade populacional.\n", nomePais1);
+        else if (densidadePopulacional2 > densidadePopulacional1)
+            printf("%s vence com maior densidade populacional.\n", nomePais2);
+        else
+            printf("Empate em densidade populacional.\n");
+    } else if (atributoEscolhido == 6) {
+        // Comparação por PIB per capita
+        if (pibPerCapita1 > pibPerCapita2)
+            printf("%s vence com maior PIB per capita.\n", nomePais1);
+        else if (pibPerCapita2 > pibPerCapita1)
+            printf("%s vence com maior PIB per capita.\n", nomePais2);
+        else
+            printf("Empate em PIB per capita.\n");
+    } else {
+        // Entrada inválida
+        printf("Opção inválida. Nenhum atributo foi comparado.\n");
+    }
 
     return 0;
 }
