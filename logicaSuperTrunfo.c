@@ -14,7 +14,7 @@ int main() {
 
     int atributoEscolhido;
 
-    // --- Cadastro da primeira carta ---
+    // -- Cadastro da primeira carta --
     printf("\nCadastro da Carta 1\n");
 
     printf("Nome do país: ");
@@ -36,7 +36,7 @@ int main() {
     densidadePopulacional1 = (area1 > 0) ? (float)populacao1 / area1 : 0;
     pibPerCapita1 = (populacao1 > 0) ? pib1 / populacao1 : 0;
 
-    // --- Cadastro da segunda carta ---
+    // -- Cadastro da segunda carta --
     printf("\nCadastro da Carta 2\n");
 
     printf("Nome do país: ");
@@ -58,7 +58,7 @@ int main() {
     densidadePopulacional2 = (area2 > 0) ? (float)populacao2 / area2 : 0;
     pibPerCapita2 = (populacao2 > 0) ? pib2 / populacao2 : 0;
 
-    // --- Menu para escolha do atributo de comparação ---
+    // -- Menu para escolha do atributo de comparação --
     printf("\nEscolha o atributo para comparar as cartas:\n");
     printf("1 - População\n");
     printf("2 - Área\n");
@@ -69,7 +69,7 @@ int main() {
     printf("Opção: ");
     scanf("%d", &atributoEscolhido);
 
-    // --- Comparação baseada no atributo escolhido ---
+    // -- Comparação baseada no atributo escolhido --
     printf("\nResultado da comparação:\n");
 
     if (atributoEscolhido == 1) {
